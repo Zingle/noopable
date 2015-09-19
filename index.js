@@ -2,6 +2,7 @@
  * Decorate function or method with .enable() and .disable() methods.
  * @param {function|object} target
  * @param {string} [prop]
+ * @returns {function}
  */
 function noopable(target, prop) {
     var obj, fn,

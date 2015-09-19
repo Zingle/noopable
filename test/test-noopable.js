@@ -27,7 +27,7 @@ describe("noopable", function() {
     });
 
     describe("(object, string)", function() {
-        it("should return a noopable method", function() {
+        it("should make object method noopable", function() {
             var obj = {method: sinon.spy()},
                 spy = obj.method;
 
@@ -38,7 +38,20 @@ describe("noopable", function() {
             expect(obj.method).to.not.be(spy);
 
             obj.method.restore();
-            expect(obj.method).to.be(spy);
+            expect(obj.method).to.be(spy);            
+        });
+
+        it("should return bound function", function(done) {
+            var obj = {},
+                fn
+
+            obj.method = function() {
+                expect(this).to.be(obj);
+                done();
+            };
+
+            fn = noopable(obj, "method");
+            fn();
         });
     });
 });

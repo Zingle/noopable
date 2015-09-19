@@ -1,6 +1,6 @@
 {
   "name": "noopable",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "decorate a function with methods to enable/disable it",
   "main": "index.js",
   "scripts": {

@@ -16,14 +16,14 @@ console.log("foo");     // does nothing
 console.log.enable();
 console.log("foo");     // prints 'foo'
 
-// pass binding context to get a .restore() method
+// can also pass object and method name
 noopable(console, "error");
 
 // disable error log
 console.error.disable();
 console.error("error"); // does nothing
 
-// restore original function
+// restore original method
 console.error.restore();
 console.error("error"); // prints 'error'
 assert(console.error.enable === undefined);
